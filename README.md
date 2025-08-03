@@ -52,3 +52,51 @@ The SA-ROC framework provides a direct blueprint for safe clinical automation by
    ```bash
    git clone [https://github.com/MGH-LMIC/SA-ROC.git](https://github.com/MGH-LMIC/SA-ROC.git)
    cd SA-ROC
+Install the required dependencies:
+
+Bash
+
+pip install -r requirements.txt
+Data Preparation
+[!NOTE]
+To use the SA-ROC framework, prepare your data in a CSV file with the following three columns:
+
+ID: A unique identifier for each case.
+
+Score: The continuous risk score output from your AI model (e.g., between 0 and 1).
+
+Label: The ground truth label, where 1 represents the positive class and 0 represents the negative class.
+
+Quickstart Example
+Python
+
+import pandas as pd
+from saroc import SA_ROC
+
+# 1. Load data from your CSV file
+data = pd.read_csv("your_data.csv")
+scores = data['Score'].values
+labels = data['Label'].values
+
+# 2. Initialize the analyzer
+analyzer = SA_ROC(scores=scores, labels=labels)
+
+# 3. Define a clinical safety policy (e.g., 99% NPV, 95% PPV)
+policy = {'alpha_minus': 0.99, 'alpha_plus': 0.95}
+
+# 4. Analyze and plot the results
+results = analyzer.analyze(policy)
+analyzer.plot() # Generates the SA-ROC curve visualization
+Citation
+If you use the SA-ROC framework or our code in your research, please cite our manuscript.
+
+코드 스니펫
+
+@article{Kim2025_SAROC,
+  author    = {Kim, Young-Tak and Kim, Hyunji and Bahl, Manisha and Lev, Michael H. and Gonz\'{a}lez, Ramon Gilberto and Gee, Michael S. and Do, Synho},
+  title     = {Quantifying Trust in Clinical AI: The Safety-Aware ROC (SA-ROC) Framework},
+  journal   = {Manuscript under review},
+  year      = {2025}
+}
+License
+The intellectual property embodied in this software is subject to a pending patent application. The source code is made available to editors and reviewers for the sole purpose of facilitating the evaluation of our manuscript. For any inquiries regarding other uses, including commercial licensing, please contact the corresponding author.
