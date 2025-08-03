@@ -29,11 +29,11 @@ The SA-ROC framework provides a direct blueprint for safe clinical automation by
 
 ![Overview of the SA-ROC Framework](SA-ROC_Overview.png)
 
-> **(b) Score Partitioning:** Based on a clinician's policy (e.g., "a negative prediction must be 100% reliable"), the framework partitions the model's raw risk scores into three zones. The **Rule-out Safe Zone** (blue) and **Rule-in Safe Zone** (red) represent predictions reliable enough for autonomous action, while the **Gray Zone** contains uncertain cases mandating human review.
+> **(a) Score Partitioning:** Based on a clinician's policy (e.g., "a negative prediction must be 100% reliable"), the framework partitions the model's raw risk scores into three zones. The 🔵 **Rule-out Safe Zone** and 🔴 **Rule-in Safe Zone** represent predictions reliable enough for autonomous action, while the ⚪️ **Gray Zone** contains uncertain cases mandating human review.
 >
-> **(c) Safety Level Dynamics:** The size of these zones dynamically changes with the required safety level (α). As the demand for reliability increases (from 90% to 100%), the Safe Zones shrink and the Gray Zone expands, quantifying the trade-off between safety and the human workload.
+> **(b) Safety Level Dynamics:** The size of these zones dynamically changes with the required safety level (α). As the demand for reliability increases, the Safe Zones shrink and the ⚪️ **Gray Zone** expands, quantifying the trade-off between safety and the human workload.
 >
-> **(d) The SA-ROC Curve:** This entire safety landscape is visualized on the standard ROC curve. The curve segments are color-coded according to their corresponding safety zone, providing an integrated view of a model's discrimination and its operational safety. The **Gray Zone Area (Γ_Area)** quantifies the model's overall operational uncertainty.
+> **(c) The SA-ROC Curve:** This entire safety landscape is visualized on the standard ROC curve. The curve segments are color-coded, providing an integrated view of a model's discrimination and its operational safety. The **Gray Zone Area (Γ_Area)** quantifies the model's overall operational uncertainty.
 
 ### Key Features
 
