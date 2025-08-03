@@ -1,102 +1,181 @@
-# SA-ROC: The Safety-Aware ROC Framework
+# SA-ROC: Safety-Aware ROC Framework
 
-![License](https://img.shields.io/badge/License-For_Review_Only-lightgrey)
-![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)
+<div align="center">
 
-This repository contains the official Python implementation for the manuscript **"Quantifying Trust in Clinical AI: The Safety-Aware ROC (SA-ROC) Framework"**.
+[![License](https://img.shields.io/badge/License-For_Review_Only-red.svg?style=flat-square)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.9+-3776ab.svg?style=flat-square&logo=python&logoColor=white)](https://python.org)
+[![arXiv](https://img.shields.io/badge/arXiv-Under_Review-b31b1b.svg?style=flat-square)](https://arxiv.org)
 
----
+**Quantifying Trust in Clinical AI Through Safety-Aware Evaluation**
 
-### Associated Manuscript
+[📚 Documentation](#getting-started) • [🚀 Quick Start](#quickstart-example) • [📖 Citation](#citation) • [🔬 Research](#associated-manuscript)
 
-> ### Quantifying Trust in Clinical AI: The Safety-Aware ROC (SA-ROC) Framework
->
-> **Young-Tak Kim¹**, **Hyunji Kim¹**, **Manisha Bahl¹**, **Michael H. Lev¹**, **Ramon Gilberto González¹,²,³**, **Michael S. Gee¹**, **Synho Do¹,⁴,⁵***
->
-> ¹ *Department of Radiology, Massachusetts General Hospital, Harvard Medical School, Boston, MA, USA*<br>
-> ² *Data Science Office, Massachusetts General Brigham, Boston, MA, USA*<br>
-> ³ *Athinoula A. Martinos Center for Biomedical Imaging, Massachusetts General Hospital, Boston, MA, USA*<br>
-> ⁴ *Kempner Institute, Harvard University, Boston, MA, USA*<br>
-> ⁵ *KU-KIST Graduate School of Converging Science and Technology, Korea University, Seoul, Republic of Korea*
->
-> **\*Corresponding Author: sdo@mgh.harvard.edu**
+</div>
 
 ---
 
-### Overview of the SA-ROC Framework
+## 🎯 Overview
 
-The SA-ROC framework provides a direct blueprint for safe clinical automation by reframing AI evaluation around clinician-defined safety policies.
+The **SA-ROC framework** revolutionizes clinical AI evaluation by providing a direct blueprint for safe automation. Unlike traditional metrics, SA-ROC reframes AI assessment around **clinician-defined safety policies**, enabling transparent and policy-driven clinical decision support.
 
-![Overview of the SA-ROC Framework](SA-ROC_Overview.png)
+### 🔑 Key Innovation
 
-> **(a) Score Partitioning:** Based on a clinician's policy (e.g., "a negative prediction must be 100% reliable"), the framework partitions the model's raw risk scores into three zones. The **Rule-out Safe Zone** and **Rule-in Safe Zone** represent predictions reliable enough for autonomous action, while the **Gray Zone** contains uncertain cases mandating human review.
->
-> **(b) Safety Level Dynamics:** The size of these zones dynamically changes with the required safety level (α). As the demand for reliability increases, the Safe Zones shrink and the **Gray Zone** expands, quantifying the trade-off between safety and the human workload.
->
-> **(c) The SA-ROC Curve:** This entire safety landscape is visualized on the standard ROC curve. The curve segments are color-coded, providing an integrated view of a model's discrimination and its operational safety. The **Gray Zone Area (Γ_Area)** quantifies the model's overall operational uncertainty.
+<div align="center">
+<img src="SA-ROC_Overview.png" alt="SA-ROC Framework Overview" width="80%">
+</div>
 
-### Key Features
-
-- **Visualize Operational Safety:** Augments the traditional ROC curve with a visual map of a model's safety landscape.
-- **Policy-Driven Partitioning:** Divides AI predictions into Safe Zones and a Gray Zone based on explicit clinical reliability targets.
-- **Quantify Uncertainty:** Introduces the Gray Zone Area (Γ_Area) to measure the "cost of indecision" and non-automated workload.
-- **Design and Compare Policies:** Enables the design of custom automation policies and facilitates head-to-head comparisons of AI models.
+> **Transform uncertainty into actionable insights** by partitioning AI predictions into **Safe Zones** (autonomous action) and **Gray Zones** (human review required).
 
 ---
 
-### Getting Started
+## ✨ Features
 
-#### Installation
+<table>
+<tr>
+<td width="50%">
 
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/MGH-LMIC/SA-ROC.git](https://github.com/MGH-LMIC/SA-ROC.git)
-   cd SA-ROC
-Install the required dependencies:
+### 🎨 **Visual Safety Mapping**
+- Augments traditional ROC curves with operational safety visualization
+- Color-coded segments for immediate insight into model reliability
 
-Bash
+### 📋 **Policy-Driven Design**
+- Define custom automation policies based on clinical requirements
+- Explicit reliability targets (e.g., "99% NPV for rule-out decisions")
 
+</td>
+<td width="50%">
+
+### 📊 **Uncertainty Quantification**
+- **Gray Zone Area (Γ_Area)** metric quantifies "cost of indecision"
+- Measures non-automated workload and operational efficiency
+
+### 🔬 **Model Comparison**
+- Head-to-head comparisons across different AI models
+- Policy-agnostic evaluation framework
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Python 3.9 or higher
+- pip package manager
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/MGH-LMIC/SA-ROC.git
+cd SA-ROC
+
+# Install dependencies
 pip install -r requirements.txt
-Data Preparation
-[!NOTE]
-To use the SA-ROC framework, prepare your data in a CSV file with the following three columns:
+```
 
-ID: A unique identifier for each case.
+### Data Format
 
-Score: The continuous risk score output from your AI model (e.g., between 0 and 1).
+> **📋 Required CSV Structure**
 
-Label: The ground truth label, where 1 represents the positive class and 0 represents the negative class.
+Your data should contain exactly three columns:
 
-Quickstart Example
-Python
+| Column | Description | Example |
+|--------|-------------|---------|
+| `ID` | Unique case identifier | `case_001` |
+| `Score` | AI model risk score (0-1) | `0.85` |
+| `Label` | Ground truth (0=negative, 1=positive) | `1` |
 
+---
+
+## 💡 Quick Start
+
+```python
 import pandas as pd
 from saroc import SA_ROC
 
-# 1. Load data from your CSV file
+# Load your data
 data = pd.read_csv("your_data.csv")
 scores = data['Score'].values
 labels = data['Label'].values
 
-# 2. Initialize the analyzer
+# Initialize SA-ROC analyzer
 analyzer = SA_ROC(scores=scores, labels=labels)
 
-# 3. Define a clinical safety policy (e.g., 99% NPV, 95% PPV)
-policy = {'alpha_minus': 0.99, 'alpha_plus': 0.95}
+# Define clinical safety policy
+policy = {
+    'alpha_minus': 0.99,  # 99% NPV requirement
+    'alpha_plus': 0.95    # 95% PPV requirement
+}
 
-# 4. Analyze and plot the results
+# Analyze and visualize
 results = analyzer.analyze(policy)
-analyzer.plot() # Generates the SA-ROC curve visualization
-Citation
-If you use the SA-ROC framework or our code in your research, please cite our manuscript.
+analyzer.plot()  # Generates SA-ROC visualization
+```
 
-코드 스니펫
+### Expected Output
 
+The framework will generate:
+- **SA-ROC curve** with color-coded safety zones
+- **Quantitative metrics** including Gray Zone Area
+- **Policy compliance** assessment
+
+---
+
+## 📚 Research
+
+### Associated Manuscript
+
+> **Quantifying Trust in Clinical AI: The Safety-Aware ROC (SA-ROC) Framework**
+>
+> **Authors:** Young-Tak Kim¹, Hyunji Kim¹, Manisha Bahl¹, Michael H. Lev¹, Ramon Gilberto González¹,²,³, Michael S. Gee¹, Synho Do¹,⁴,⁵*
+>
+> **Affiliations:**
+> - ¹ Department of Radiology, Massachusetts General Hospital, Harvard Medical School
+> - ² Data Science Office, Massachusetts General Brigham  
+> - ³ Athinoula A. Martinos Center for Biomedical Imaging, MGH
+> - ⁴ Kempner Institute, Harvard University
+> - ⁵ KU-KIST Graduate School of Converging Science and Technology, Korea University
+>
+> **Corresponding Author:** sdo@mgh.harvard.edu
+
+---
+
+## 📄 Citation
+
+If you use SA-ROC in your research, please cite:
+
+```bibtex
 @article{Kim2025_SAROC,
-  author    = {Kim, Young-Tak and Kim, Hyunji and Bahl, Manisha and Lev, Michael H. and Gonz\'{a}lez, Ramon Gilberto and Gee, Michael S. and Do, Synho},
-  title     = {Quantifying Trust in Clinical AI: The Safety-Aware ROC (SA-ROC) Framework},
+  author    = {Kim, Young-Tak and Kim, Hyunji and Bahl, Manisha and 
+               Lev, Michael H. and Gonz\'{a}lez, Ramon Gilberto and 
+               Gee, Michael S. and Do, Synho},
+  title     = {Quantifying Trust in Clinical AI: The Safety-Aware ROC 
+               (SA-ROC) Framework},
   journal   = {Manuscript under review},
   year      = {2025}
 }
-License
-The intellectual property embodied in this software is subject to a pending patent application. The source code is made available to editors and reviewers for the sole purpose of facilitating the evaluation of our manuscript. For any inquiries regarding other uses, including commercial licensing, please contact the corresponding author.
+```
+
+---
+
+## ⚖️ License
+
+> **🔒 Patent Pending**
+> 
+> This software embodies intellectual property subject to a pending patent application. Source code is provided to editors and reviewers for manuscript evaluation purposes only.
+> 
+> For commercial licensing inquiries, contact: **sdo@mgh.harvard.edu**
+
+---
+
+<div align="center">
+
+**Built with ❤️ by the [MGH Laboratory for Medical Informatics and Computing](https://github.com/MGH-LMIC)**
+
+[⭐ Star this repo](https://github.com/MGH-LMIC/SA-ROC) • [🐛 Report Issues](https://github.com/MGH-LMIC/SA-ROC/issues) • [💬 Discussions](https://github.com/MGH-LMIC/SA-ROC/discussions)
+
+</div>
