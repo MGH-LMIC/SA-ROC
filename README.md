@@ -12,7 +12,11 @@ The **SA-ROC framework** advances clinical AI evaluation by providing a direct b
 <img src="SA-ROC_Overview.png" alt="SA-ROC Framework Overview" width="80%">
 </div>
 
-> **Transform uncertainty into actionable insights** by partitioning AI predictions into **Safe Zones** (for autonomous action) and a **Gray Zone** (where human review is required).
+> **(a) Score Partitioning:** Based on a clinician's policy (e.g., "a negative prediction must be 100% reliable"), the framework partitions the model's raw risk scores into three zones. The **Rule-out Safe Zone** and **Rule-in Safe Zone** represent predictions reliable enough for autonomous action, while the **Gray Zone** contains uncertain cases mandating human review.
+>
+> **(b) Safety Level Dynamics:** The size of these zones dynamically changes with the required safety level (α). As the demand for reliability increases, the Safe Zones shrink and the **Gray Zone** expands, quantifying the trade-off between safety and the human workload.
+>
+> **(c) The SA-ROC Curve:** This entire safety landscape is visualized on the standard ROC curve. The curve segments are color-coded, providing an integrated view of a model's discrimination and its operational safety. The **Gray Zone Area (Γ_Area)** quantifies the model's overall operational uncertainty.
 
 ---
 
