@@ -78,6 +78,7 @@ policy = {
 # Analyze and visualize the results
 results = analyzer.analyze(policy)
 analyzer.plot()  # Generates the SA-ROC visualization
+```
 
 ## Associated Manuscript
 
