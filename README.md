@@ -88,16 +88,17 @@ analyzer.plot()  # Generates the SA-ROC visualization
 
 > **Quantifying Trust in Clinical AI: The Safety-Aware ROC (SA-ROC) Framework**
 >
-> **Authors:** Young-Tak Kim¹, Hyunji Kim¹, Manisha Bahl¹, Michael H. Lev¹, Ramon Gilberto González¹,²,³, Michael S. Gee¹, Synho Do¹,⁴,⁵*
+> **Authors:**<br>
+> Young-Tak Kim¹, Hyunji Kim¹, Manisha Bahl¹, Michael H. Lev¹, Ramon Gilberto González¹,²,³, Michael S. Gee¹, Synho Do¹,⁴,⁵*
 >
-> **Affiliations:**
-> ¹ Department of Radiology, Massachusetts General Hospital, Harvard Medical School
-> ² Data Science Office, Massachusetts General Brigham
-> ³ Athinoula A. Martinos Center for Biomedical Imaging, MGH
-> ⁴ Kempner Institute, Harvard University
-> ⁵ KU-KIST Graduate School of Converging Science and Technology, Korea University
+> **Affiliations:**<br>
+> ¹ *Department of Radiology, Massachusetts General Hospital, Harvard Medical School*<br>
+> ² *Data Science Office, Massachusetts General Brigham*<br>
+> ³ *Athinoula A. Martinos Center for Biomedical Imaging, Massachusetts General Hospital*<br>
+> ⁴ *Kempner Institute, Harvard University*<br>
+> ⁵ *KU-KIST Graduate School of Converging Science and Technology, Korea University*
 >
-> **Corresponding Author:** sdo@mgh.harvard.edu
+> **\*Corresponding Author:** sdo@mgh.harvard.edu
 
 ## License
 
