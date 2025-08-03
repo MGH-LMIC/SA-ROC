@@ -91,11 +91,11 @@ analyzer.plot()  # Generates the SA-ROC visualization
 > **Authors:** Young-Tak Kim¹, Hyunji Kim¹, Manisha Bahl¹, Michael H. Lev¹, Ramon Gilberto González¹,²,³, Michael S. Gee¹, Synho Do¹,⁴,⁵*
 >
 > **Affiliations:**
-> - ¹ Department of Radiology, Massachusetts General Hospital, Harvard Medical School
-> - ² Data Science Office, Massachusetts General Brigham
-> - ³ Athinoula A. Martinos Center for Biomedical Imaging, MGH
-> - ⁴ Kempner Institute, Harvard University
-> - ⁵ KU-KIST Graduate School of Converging Science and Technology, Korea University
+> ¹ Department of Radiology, Massachusetts General Hospital, Harvard Medical School
+> ² Data Science Office, Massachusetts General Brigham
+> ³ Athinoula A. Martinos Center for Biomedical Imaging, MGH
+> ⁴ Kempner Institute, Harvard University
+> ⁵ KU-KIST Graduate School of Converging Science and Technology, Korea University
 >
 > **Corresponding Author:** sdo@mgh.harvard.edu
 
