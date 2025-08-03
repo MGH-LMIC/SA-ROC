@@ -3,12 +3,23 @@
 ![License](https://img.shields.io/badge/License-Protected-blue)
 ![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)
 
-This repository contains the official Python implementation of the **Safety-Aware ROC (SA-ROC) Framework**, a novel methodology for quantifying trust and operational safety in clinical AI.
+This repository contains the official Python implementation for the manuscript **"Quantifying Trust in Clinical AI: The Safety-Aware ROC (SA-ROC) Framework"**.
 
-This code is the official implementation for the manuscript:
-> **Quantifying Trust in Clinical AI: The Safety-Aware ROC (SA-ROC) Framework** <br>
-> *Young-Tak Kim, Hyunji Kim, et al.* <br>
-> (Currently under review at *Nature Biomedical Engineering*)
+---
+
+### Associated Manuscript
+
+> ### Quantifying Trust in Clinical AI: The Safety-Aware ROC (SA-ROC) Framework
+>
+> **Young-Tak Kim¹**, **Hyunji Kim¹**, **Manisha Bahl¹**, **Michael H. Lev¹**, **Ramon Gilberto González¹,²,³**, **Michael S. Gee¹**, **Synho Do¹,⁴,⁵***
+>
+> ¹ *Department of Radiology, Massachusetts General Hospital, Harvard Medical School, Boston, MA, USA*
+> ² *Data Science Office, Massachusetts General Brigham, Boston, MA, USA*
+> ³ *Athinoula A. Martinos Center for Biomedical Imaging, Massachusetts General Hospital, Boston, MA, USA*
+> ⁴ *Kempner Institute, Harvard University, Boston, MA, USA*
+> ⁵ *KU-KIST Graduate School of Converging Science and Technology, Korea University, Seoul, Republic of Korea*
+>
+> **\*Corresponding Author: sdo@mgh.harvard.edu**
 
 ---
 
@@ -26,6 +37,8 @@ Conventional metrics like AUC fail to answer the clinician's critical question: 
 - **Quantify Uncertainty:** Introduces the Gray Zone Area (Γ_Area) to measure the "cost of indecision" and non-automated workload.
 - **Design and Compare Policies:** Enables the design of custom automation policies and facilitates head-to-head comparisons of AI models under real-world safety constraints.
 
+---
+
 ### Getting Started
 
 #### Prerequisites
@@ -33,40 +46,7 @@ Conventional metrics like AUC fail to answer the clinician's critical question: 
 - Standard scientific computing libraries (NumPy, Matplotlib, Scikit-learn, etc.)
 
 #### Installation
-1.  Clone the repository:
-    ```bash
-    git clone [https://github.com/MGH-LMIC/SA-ROC.git](https://github.com/MGH-LMIC/SA-ROC.git)
-    cd SA-ROC
-    ```
-2.  Install the required dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-### Quickstart Example
-
-Here is a simple example of how to use the `saroc` library to analyze a model's predictions.
-
-```python
-# Import the main class from the library
-from saroc import SA_ROC
-
-# 1. Load your model's prediction scores and the ground truth labels
-# (scores should be continuous values, e.g., between 0 and 1)
-scores = [...]  # Array of your model's prediction scores
-labels = [...]  # Array of the true labels (0 or 1)
-
-# 2. Initialize the SA-ROC analyzer with your data
-analyzer = SA_ROC(scores=scores, labels=labels)
-
-# 3. Define a clinical safety policy
-# e.g., require 99% NPV for rule-out and 95% PPV for rule-in
-policy = {'alpha_minus': 0.99, 'alpha_plus': 0.95}
-
-# 4. Analyze the model under the specified policy
-results = analyzer.analyze(policy)
-print(results)
-
-# 5. Plot the SA-ROC curve and the safety profile
-analyzer.plot_sa_roc_curve()
-analyzer.plot_safety_profile()
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/MGH-LMIC/SA-ROC.git](https://github.com/MGH-LMIC/SA-ROC.git)
+   cd SA-ROC
