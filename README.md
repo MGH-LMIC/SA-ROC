@@ -73,7 +73,7 @@ Provide a CSV with the following columns:
 | :--- | :---: | :---: |
 | case_0001 | 0.83 | 1 |
 | case_0002 | 0.14 | 0 |
-
+| case_0003 | 0.35 | 0 |
 
 Place your file under `data/` (e.g., `data/example_data.csv`).
 
