@@ -111,9 +111,9 @@ _ = analyzer.plot_sa_roc(
     show_ci=True,
     n_bootstraps=100,            # increase (e.g., 2000) for publication-grade CIs
     title="SA-ROC with 95% CI",
-    save_path="figs/sa_roc.png",
+    save_path="figs/sa_roc_with_ci.png",
 )
-print("Saved: figs/sa_roc.png")
+print("Saved: figs/sa_roc_with_ci.png")
 ```
 
 ---
