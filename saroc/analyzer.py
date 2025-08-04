@@ -537,10 +537,7 @@ class SA_ROC_Analyzer:
         ax1.set_ylabel("Operational Uncertainty (Γ_Area)", fontsize=12, color=color1)
         line1, = ax1.plot(alphas, gamma_profile, color=color1, lw=2.5, label="Γ_Area")
         ax1.tick_params(axis="y", labelcolor=color1)
-
-        max_gamma = max(gamma_profile) if len(gamma_profile) else 0.0
-        upper_gamma = float(np.ceil(max(0.1, max_gamma) * 10) / 10)
-        ax1.set_ylim(0, upper_gamma)
+        ax1.set_ylim(0, 1.0)
         ax1.yaxis.set_major_locator(MultipleLocator(0.1))
 
         # Right Y-axis for % Cohort in Gray Zone
@@ -550,7 +547,7 @@ class SA_ROC_Analyzer:
         line2, = ax2.plot(alphas, gray_zone_cohort_pct, color=color2, lw=2.5, ls="--", label="% in Gray Zone")
         ax2.tick_params(axis="y", labelcolor=color2)
         ax2.set_ylim(0, 100)
-        ax2.yaxis.set_major_locator(MultipleLocator(20))
+        ax2.yaxis.set_major_locator(MultipleLocator(10))
 
         ax1.set_title(title, fontsize=16, weight="bold")
         ax1.legend(handles=[line1, line2], loc="upper left")
