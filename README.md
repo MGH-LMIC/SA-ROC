@@ -54,6 +54,8 @@ python -m venv .venv
 
 # Install dependencies (pinned to a known-good stack)
 pip install -r requirements.txt
+```
+
 ---
 
 ## Data Format
@@ -66,9 +68,11 @@ Provide a CSV with the following columns:
 
 **Example**
 
+```csv
 ID,Score,Label
 case_0001,0.83,1
 case_0002,0.14,0
+```
 
 Place your file under `data/` (e.g., `data/example_data.csv`).
 
@@ -110,13 +114,10 @@ _ = analyzer.plot_sa_roc(
     save_path="figs/sa_roc.png",
 )
 print("Saved: figs/sa_roc.png")
-
+```
 
 ---
 
-### 3) **Core Diagnostics (Recommended Plots)**
-
-```markdown
 ## Core Diagnostics (Recommended Plots)
 
 ```python
@@ -135,14 +136,10 @@ _ = analyzer.plot_safety_profile(
     title="Safety Profile Curve",
 )
 print("Saved: figs/safety_profile.png")
-
-
+```
 
 ---
 
-### 4) **Policy Recommendation Routines**
-
-```markdown
 ## Policy Recommendation Routines
 
 We provide utilities to convert clinical targets into operational thresholds `(τ-, τ+)`.
@@ -211,13 +208,10 @@ _ = analyzer.plot_utility_heatmap_and_breakdown(
     save_path="figs/policy_utility_heatmap_breakdown.png",
 )
 print("Saved: figs/policy_utility_heatmap_breakdown.png")
-
+```
 
 ---
 
-### 5) **Tutorial Notebook**
-
-```markdown
 ## Tutorial Notebook
 
 A step-by-step tutorial is provided in **`tutorial.ipynb`**. It demonstrates:
@@ -231,15 +225,13 @@ A step-by-step tutorial is provided in **`tutorial.ipynb`**. It demonstrates:
 Launch:
 ```bash
 jupyter lab  # or: jupyter notebook
-
+```
 
 ---
 
-### 6) **Project Structure**
-
-```markdown
 ## Project Structure
 
+```
 SA-ROC/
 ├─ saroc/
 │ └─ analyzer.py # SA_ROC_Analyzer: core logic, plots, policy routines
@@ -249,14 +241,14 @@ SA-ROC/
 ├─ tutorial.ipynb # end-to-end tutorial
 ├─ requirements.txt # pinned stack
 └─ README.md
+```
 
 ## Reproducibility & Notes
 
-- **Backend & Warnings**: The analyzer sets Matplotlib’s backend to `Agg` and suppresses Python warnings for clean, deterministic output (useful in headless/CI).
+- **Backend & Warnings**: The analyzer sets Matplotlib's backend to `Agg` and suppresses Python warnings for clean, deterministic output (useful in headless/CI).
 - **Bootstrapping**: Confidence intervals are computed via bootstrap. Use small `n_bootstraps` (e.g., 100–200) for exploration and increase for final reporting.
 - **Input Validation**: Scores must be calibrated within `[0, 1]`. Labels must be binary `{0, 1}` with both classes present.
 - **Figure Outputs**: Plots are saved under `figs/` by default; ensure the directory is writable on your system.
-
 
 ## Associated Manuscript
 
