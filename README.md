@@ -76,6 +76,25 @@ case_0002,0.14,0
 
 Place your file under `data/` (e.g., `data/example_data.csv`).
 
+---
+
+## Tutorial Notebook
+
+A step-by-step tutorial is provided in **`tutorial.ipynb`**. It demonstrates:
+
+1. Loading example data and basic validation  
+2. Defining safety policies and choosing an operating threshold  
+3. Rendering core diagnostics: SA-ROC, jitter + distributions, safety profile  
+4. Running the four policy recommendation routines  
+5. Visualizing policy outcomes (overview + utility heatmap/bars)
+
+Launch:
+```bash
+jupyter lab  # or: jupyter notebook
+```
+
+---
+
 ## Quick Start (Minimal Example)
 
 ```python
@@ -209,25 +228,6 @@ _ = analyzer.plot_utility_heatmap_and_breakdown(
 )
 print("Saved: figs/policy_utility_heatmap_breakdown.png")
 ```
-
----
-
-## Tutorial Notebook
-
-A step-by-step tutorial is provided in **`tutorial.ipynb`**. It demonstrates:
-
-1. Loading example data and basic validation  
-2. Defining safety policies and choosing an operating threshold  
-3. Rendering core diagnostics: SA-ROC, jitter + distributions, safety profile  
-4. Running the four policy recommendation routines  
-5. Visualizing policy outcomes (overview + utility heatmap/bars)
-
-Launch:
-```bash
-jupyter lab  # or: jupyter notebook
-```
-
----
 
 ## Project Structure
 
