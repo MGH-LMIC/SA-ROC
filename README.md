@@ -68,12 +68,12 @@ Provide a CSV with the following columns:
 
 **Example**
 
-```csv
+
 | ID | Score | Label |
 | :--- | :---: | :---: |
 | case_0001 | 0.83 | 1 |
 | case_0002 | 0.14 | 0 |
-```
+
 
 Place your file under `data/` (e.g., `data/example_data.csv`).
 
