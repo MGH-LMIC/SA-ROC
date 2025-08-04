@@ -9,7 +9,7 @@ This repository contains the official Python implementation for the manuscript *
 The **SA-ROC framework** advances clinical AI evaluation by providing a direct blueprint for safe automation. Unlike traditional metrics, SA-ROC reframes AI assessment around **clinician-defined safety policies**, enabling transparent and policy-driven clinical decision support.
 
 <div align="center">
-<img src="SA-ROC_Overview.png" alt="SA-ROC Framework Overview" width="80%">
+<img src="https://github.com/user-attachments/assets/e555e93c-a34b-4f6f-b463-edbd71763f6c" alt="SA-ROC Framework Overview" width="80%">
 </div>
 
 > **(a) Score Partitioning:** Based on a clinician's policy (e.g., "a negative prediction must be 100% reliable"), the framework partitions the model's raw risk scores into three zones. The **Rule-out Safe Zone** and **Rule-in Safe Zone** represent predictions reliable enough for autonomous action, while the **Gray Zone** contains uncertain cases mandating human review.
